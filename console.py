@@ -129,6 +129,13 @@ class HBNBCommand(cmd.Cmd):
         cls_name = temp[0]
         ex_arg = {}
 
+        if temp[2]:
+            temp2 = temp[2].split(" ")
+            for x in temp2:
+                y, z = x.split("=")
+                ex_arg[y] = z.strip('"')
+        # print(ex_arg)
+
         if not cls_name:
             print("** class name missing **")
             return
