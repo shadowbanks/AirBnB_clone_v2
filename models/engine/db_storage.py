@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """This module defines a class to manage db storage for hbnb clone"""
 from os import getenv
 from sqlalchemy import create_engine
@@ -74,3 +74,7 @@ class DBStorage:
             sessionmaker(bind=self.__engine, expire_on_commit=False)
         )
         self.__session = Session()
+
+    def close(self):
+        """Close"""
+        self.__session.close()
